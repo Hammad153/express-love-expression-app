@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play with my Favourites</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Express Love with your partner😘</h1>
+        
+        <!-- Render the GIF based on conditions -->
+        <div>
+            <% if (locals.sadGif) { %>
+                <span><img src="<%= sadGif %>" alt="Sad GIF"></span>
+            <% } else if (locals.loveGif) { %>
+                <span><img src="<%= loveGif %>" alt="Love GIF"></span>
+            <% } else { %>
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExczIxNzJoeTh6aGhqc2x5Mno3aXNkeDZleTc5bnVidWE3czh3dmd4OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/12J28qxlb4sfFm/giphy.webp" alt="default GIF">
+            <% } %>
+        </div>
+
+        <!-- Display the message content -->
+        <div>
+            <% if (locals.sadWord) { %>
+                <p class="sadword"><%= sadWord %></p>
+            <% } else if (locals.loveWord) { %>
+                <p class="loveword"><%= loveWord %></p>
+            <% } %>
+        </div>
+
+        <!-- Display the "thinking again" message if applicable -->
+        <% if (locals.thinkingAgain) { %>
+            <p class="thinkagain"><%= thinkingAgain %></p>
+        <% } %>
+
+        <div>
+            <h2>Do you love me?😔</h2>
+        </div>
+        <!-- Form for the user to interact with -->
+        <form method="post" class="form">     
+            <div class="buttons">  
+                <button type="submit" id="yes" class="form-submit" formaction="/yes">Yes</button>
+                <button type="submit" id="no" class="form-submit" formaction="/no">No</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
